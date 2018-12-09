@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $menu = base_url();
     $photo = base_url().'assets/app/images/avatar/'.$this->session->userdata('photo');
     $logo_mini = base_url().'assets/local/images/aplikasi/mini-logo.png';
-    $logo = base_url().'assets\app\images\app\logo_cis.png';
+    $logo = base_url().'assets\app\images\app\logo_koperasi.png';
 
 
     //identitas user
@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand bg-warning navbar-light border-bottom">
+  <nav class="main-header navbar navbar-expand bg-default navbar-light border-bottom">
   <!-- Left navbar links -->  
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -139,10 +139,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="<?php echo $menu; ?>" class="brand-link bg-danger">
+    <a href="<?php echo $menu; ?>" class="brand-link bg-success">
       <img src="<?php echo $logo ?>" alt="Logo" class="brand-image img-responsive elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">CIS</span>
+      <span class="brand-text font-weight-light">KOMARA APP</span>
     </a>
 
     <!-- Sidebar -->

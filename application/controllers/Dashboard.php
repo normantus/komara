@@ -28,7 +28,7 @@ class Dashboard extends CI_Controller {
     function index() {
         //$this->toastr->success('Sukses menambahkan data');
         if ($this->nor_auth->isLoginStatus()) {
-            $this->nor_auth->view('app/store','v_dashboard_store','Dashboard', $data); // view(folder, page, title, $data)  
+            $this->nor_auth->view('app/store','v_dashboard_store','Dashboard', NULL); // view(folder, page, title, $data)  
         }else {
             //$this->session->set_flashdata('isForbidden', 'Maaf, Anda belum memiliki hak akses aplikasi ini, hubungi IT');
             redirect(base_url('forbidden/true'));
