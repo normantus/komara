@@ -1,0 +1,14 @@
+CREATE TABLE `ms_anggota` (
+	`nik` VARCHAR(8) NOT NULL,
+	`first_name` VARCHAR(30) NOT NULL,
+	`last_name` VARCHAR(50) NOT NULL,
+	`born_date` DATE NULL DEFAULT NULL,
+	`email` VARCHAR(50) NULL DEFAULT NULL,
+	`address` VARCHAR(300) NOT NULL,
+	`no_hp` VARCHAR(12) NULL DEFAULT NULL,
+	`no_ktp` VARCHAR(16) NULL DEFAULT NULL,
+	`pin` INT(6) NOT NULL DEFAULT '123456'
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
