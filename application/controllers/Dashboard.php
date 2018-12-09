@@ -8,7 +8,6 @@ class Dashboard extends CI_Controller {
         parent::__construct();
         $this->load->model('dashboard_model');
         $this->load->library('nor_auth');
-        //$this->nor_auth->hak_akses('CCTV');
         
     }
     
@@ -28,27 +27,10 @@ class Dashboard extends CI_Controller {
     } */
     function index() {
         //$this->toastr->success('Sukses menambahkan data');
-        if ($this->nor_auth->isStore()) {
-            $kd_store = $this->session->userdata('kd_store');
-            $data['problem_cctv'] = $this->dashboard_model->get_record_problem_store($kd_store);
+        if ($this->nor_auth->isLoginStatus()) {
             $this->nor_auth->view('app/store','v_dashboard_store','Dashboard', $data); // view(folder, page, title, $data)  
-        }elseif($this->nor_auth->isOperator()) {
-            $data['problem_cctv'] = $this->dashboard_model->get_record_problem_store($kd_store);
-            $this->nor_auth->view('app/operator','v_dashboard_operator','Dashboard', $data); // view(folder, page, title, $data)  
-        }elseif($this->nor_auth->isSupport()) {
-            $data['problem_cctv'] = $this->dashboard_model->get_record_problem_store($kd_store);
-            $this->nor_auth->view('app/support','v_dashboard_support','Dashboard', $data); // view(folder, page, title, $data)  
-        }elseif($this->nor_auth->isArea()) {
-            $data['problem_cctv'] = $this->dashboard_model->get_record_problem_store($kd_store);
-            $this->nor_auth->view('app/area','v_dashboard_area','Dashboard', $data); // view(folder, page, title, $data)  
-        }elseif($this->nor_auth->isAm()) {
-            $data['problem_cctv'] = $this->dashboard_model->get_record_problem_store($kd_store);
-            $this->nor_auth->view('app/am','v_dashboard_am','Dashboard', $data); // view(folder, page, title, $data)  
-        }elseif($this->nor_auth->isPurchasing()) {
-            $data['problem_cctv'] = $this->dashboard_model->get_record_problem_store($kd_store);
-            $this->nor_auth->view('app/purchasing','v_dashboard_purchasing','Dashboard', $data); // view(folder, page, title, $data)  
         }else {
-            //$this->session->set_flashdata('isForbidden', 'Maaf, Anda belum memiliki hak akses aplikasi ini, hubungi IT Support.');
+            //$this->session->set_flashdata('isForbidden', 'Maaf, Anda belum memiliki hak akses aplikasi ini, hubungi IT');
             redirect(base_url('forbidden/true'));
         }
     }    

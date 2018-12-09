@@ -8,7 +8,7 @@ class Dashboard_model extends CI_Model {
 	public function __construct()
     {
 		parent::__construct();
-		$this->load->database('apps');
+		$this->load->database();
 	}
 	
 	function get_record_problem_store($kd_store) {

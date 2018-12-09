@@ -21,23 +21,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    		
 	 }
 	 
-	 function get_user_store($nik) {
-
-   		$query = $this->db->query(
-			"SELECT MSP_UU_CODE AS KD_STORE FROM MS_PEGAWAI
-			WHERE MSP_UU_PARENT = 'BZ01' 
-			AND MSP_KODE = '$nik'
-			AND MSP_AKTIF = 'Y'"
-   		);
-   		if($query -> num_rows() > 0) {
-			return $query->result();
-   		}
-   		else {
-			 return false;
-   		}
-   		
-	 }
-
 	 function get_user_role($nik) {
 
 		$query = $this->db->query(
@@ -67,6 +50,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  	} 	
 
 	/*
+
+	//tidak dipakai
+	 function get_user_store($nik) {
+
+   		$query = $this->db->query(
+			"SELECT MSP_UU_CODE AS KD_STORE FROM MS_PEGAWAI
+			WHERE MSP_UU_PARENT = 'BZ01' 
+			AND MSP_KODE = '$nik'
+			AND MSP_AKTIF = 'Y'"
+   		);
+   		if($query -> num_rows() > 0) {
+			return $query->result();
+   		}
+   		else {
+			 return false;
+   		}
+   		
+	 }
+
 	 function total_record() {
 		$query=$this->db->query(
 			"SELECT NIK, PASSWORD, HAK 

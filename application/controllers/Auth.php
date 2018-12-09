@@ -16,8 +16,8 @@ class Auth extends CI_Controller {
 
 	public function loginMe()
 	{
-		$ip = $this->input->ip_address();
-		$this->nor_auth->loginMe($ip);
+		//$ip = $this->input->ip_address();
+		$this->nor_auth->loginMe();
 	}
 
 	public function login()

@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <center><img src="<?php echo $logo; ?>" width="150" class="img-responsive" alt="Logo Albi"></center>    
+    <center><img src="<?php echo $logo; ?>" width="150" class="img-responsive" alt="Logo Koperasi"></center>    
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

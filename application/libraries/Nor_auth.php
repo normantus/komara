@@ -60,20 +60,21 @@
 
      }
 
-     function loginMe($ip) {
+     function loginMe() {
+      $this->ci->load->database();
       $result = $this->ci->login_model->validasi();
       
 		 
    		if($result) {
      		foreach($result as $session) {
   				$sess_data['isLoggedIn'] = 'komara_app';
-  				$sess_data['nik'] = $session->NIK;
-  				$sess_data['first_name'] = $session->FIRST_NAME;
-  				$sess_data['last_name'] = $session->LAST_NAME;
-          $sess_data['position'] = $session->JABATAN;
-  				$sess_data['photo'] = $session->PHOTO;
-          $sess_data['last_login'] = $session->LAST_LOGIN;
-          $sess_data['pin'] = $session->PIN;
+  				$sess_data['nik'] = $session->nik;
+  				$sess_data['first_name'] = $session->first_name;
+  				$sess_data['last_name'] = $session->last_name;
+          $sess_data['position'] = $session->jabatan;
+  				$sess_data['photo'] = $session->photo;
+          $sess_data['last_login'] = $session->last_login;
+          $sess_data['pin'] = $session->pin;
   				$this->ci->session->set_userdata($sess_data);
 			  }
         
@@ -82,14 +83,8 @@
           //$sess_data['role'] = $modul->USER_AKSES;
           //$this->ci->session->set_userdata($sess_data);
         //}
-        $this->get_user_role();
-        $this->get_user_store();
-        
-        redirect('dashboard');
-        
-
-        
-     		
+        $this->get_user_role();        
+        redirect('dashboard');     		
    		}
    		else {
         $this->ci->session->set_flashdata('result_login', 'Maaf, Username atau Password yang anda masukkan salah.');
@@ -101,21 +96,7 @@
       * Hapus session, lalu set notifikasi kemudian di alihkan
       * ke halaman login
       */
-     
-      function get_user_store() {
-        $this->ci->load->database('acc');
-        $result = $this->ci->login_model->get_user_store($this->ci->session->userdata('nik'));
-		 
-        if($result) {
-          foreach($result as $session) {
-            $sess_data['kd_store'] = $session->KD_STORE;
-            $this->ci->session->set_userdata($sess_data);
-          }
-        }
-        return;
-        $this->ci->db->close();
-      }
-
+    
       function get_user_role() {
         $this->ci->load->database('apps');
         $result = $this->ci->login_model->get_user_role($this->ci->session->userdata('nik'));
@@ -131,9 +112,9 @@
       
      
       public function logout() {
-      $this->ci->session->sess_destroy();
-      $this->ci->login_model->last_login();
-      redirect(base_url());
+        $this->ci->session->sess_destroy();
+        $this->ci->login_model->last_login();
+        redirect(base_url());
      }
  
     public function view($folder, $page, $title, $data) {
