@@ -36,12 +36,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
   }
 	 
-	function last_login() {
-		$username = $this->input->post('username');
-		
+	function last_login() {	 //belum benar
+		$nik = $this->session->userdata('nik');
    		$query = $this->db->query(
-   			"UPDATE ms_admin SET last_login = SYSDATE WHERE nik = '$username' AND active = true"
-   		);
+   			"select * from mss_admin where nik = '20170014' and active = true"
+		   );
+		   return;
    		
    		//$attempts = $this->db->query(
    		//	"INSERT INTO log_login_attempts(ip_address, login, date, time) VALUES('$ip', '$username', CURDATE(), CURTIME())"

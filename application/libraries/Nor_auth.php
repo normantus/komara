@@ -113,7 +113,7 @@
      
       public function logout() {
         $this->ci->session->sess_destroy();
-        $this->ci->login_model->last_login();
+        //$this->ci->login_model->last_login();  //di skip dulu belum benar.
         redirect(base_url());
      }
  
